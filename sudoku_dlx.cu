@@ -57,7 +57,7 @@ int main(int argc, char* argv[]) {
 void error_check(int line_number, int arg_count, ...) {
     cudaError_t err=cudaGetLastError();
     if (err != cudaSuccess) {
-        fprintf(stderr, "%s in %s at line %d\n", cudaGetErrorString(err), line_number);
+        fprintf(stderr, "[CUDA ERROR] %s at line %d\n", cudaGetErrorString(err), line_number);
         va_list ap;
         va_start(ap, arg_count);
         int i;
